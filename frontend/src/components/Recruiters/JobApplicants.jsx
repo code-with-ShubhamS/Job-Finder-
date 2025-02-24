@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
+import { VITE_APPLICATION_API_END_POINT } from "URI";
 
 const JobApplicants = () => {
   const [loading, setLoading] = useState(false);
@@ -20,7 +21,7 @@ const JobApplicants = () => {
       try {
         setApplicantLoading(true);
         const res = await fetch(
-          `${import.meta.env.VITE_APPLICATION_API_END_POINT}/${jobId}/applicants`,
+          `${VITE_APPLICATION_API_END_POINT}/${jobId}/applicants`,
           {
             method: "GET",
             credentials: "include",

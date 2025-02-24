@@ -3,6 +3,7 @@ import { ToastAction } from '@radix-ui/react-toast';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { JobsActions } from '../../../redux/Jobs.js';
+import { VITE_JOB_API_END_POINT } from 'URI.js';
 const useGetAllJobs = () => {
     const dispatch = useDispatch()
     const [error,setError] = useState(false);
@@ -12,7 +13,7 @@ const useGetAllJobs = () => {
         async function getJobs(){
             try {
                 setLoading(true)
-                const res = await fetch(`${import.meta.env.VITE_JOB_API_END_POINT}/get`,{
+                const res = await fetch(`${VITE_JOB_API_END_POINT}/get`,{
                     method:"GET",
                     credentials:"include"
                 })

@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "@/hooks/use-toast";
 import {AdminJobsActions} from "../../../redux/AdminJobs.js"
 import { useNavigate } from "react-router-dom";
+import { VITE_JOB_API_END_POINT } from "URI";
 
 
 const jobTypes = ["Full-time", "Part-time", "Contract", "Freelance"];
@@ -101,7 +102,7 @@ export default function CreateJob() {
     setIsSubmitting(true);
     try {
   //  API call
-      const res = await fetch(`${import.meta.env.VITE_JOB_API_END_POINT}/post`,{
+      const res = await fetch(`${VITE_JOB_API_END_POINT}/post`,{
         method:"POST",
         credentials:"include",
         headers:{

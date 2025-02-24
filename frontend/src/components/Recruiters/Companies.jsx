@@ -15,6 +15,7 @@ import { toast } from '@/hooks/use-toast';
 import CompanyTable from './CompanyTable';
 import { useDispatch, useSelector } from 'react-redux';
 import {CompanyAction} from "../../../redux/Company.js"
+import { VITE_COMPANY_API_END_POINT } from 'URI';
 
 const Companies = () => {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Companies = () => {
       async function fetchAllCompanies() {
         try {
           setLoading(false)
-          const res = await fetch(`${import.meta.env.VITE_COMPANY_API_END_POINT}/get`,{
+          const res = await fetch(`${VITE_COMPANY_API_END_POINT}/get`,{
             method:"GET",
             credentials:"include"
           })

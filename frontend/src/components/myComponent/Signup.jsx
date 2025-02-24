@@ -8,6 +8,7 @@ import { toast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
+import { VITE_USER_API_END_POINT } from "URI";
 
 export default function SignupPage() {
   const navigate = useNavigate()
@@ -66,7 +67,7 @@ export default function SignupPage() {
     
       try {
         setLoading(true)
-        const res = await fetch(`${import.meta.env.VITE_USER_API_END_POINT}/register`,{
+        const res = await fetch(`${VITE_USER_API_END_POINT}/register`,{
           method:"POST",
           body:form,
           credentials:"include"

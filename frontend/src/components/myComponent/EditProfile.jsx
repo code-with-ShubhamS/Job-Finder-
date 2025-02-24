@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from "../../../redux/UserProfile";
 import { Loader2 } from 'lucide-react'
 import { toast } from '@/hooks/use-toast'
+import { VITE_USER_API_END_POINT } from 'URI'
 
 
 const EditProfile = ({open,setOpen}) => {
@@ -58,7 +59,7 @@ async function onSubmitData(){
 
   try {
     setLoading(true)
-    const res = await fetch(`${import.meta.env.VITE_USER_API_END_POINT}/profile/update`,{
+    const res = await fetch(`${VITE_USER_API_END_POINT}/profile/update`,{
       method:"PUT",
       credentials:"include",
       body:formData

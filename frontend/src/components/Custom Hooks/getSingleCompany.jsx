@@ -3,6 +3,7 @@ import { ToastAction } from '@radix-ui/react-toast';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { CompanyAction } from '../../../redux/Company.js';
+import { VITE_COMPANY_API_END_POINT } from 'URI.js';
 const getSingleCompany = (id) => {
     const dispatch = useDispatch()
     const [error,setError] = useState(false);
@@ -11,7 +12,7 @@ const getSingleCompany = (id) => {
         async function getSingleCompanyInfo(){
             try {
                 setLoading(true)
-                const res = await fetch(`${import.meta.env.VITE_COMPANY_API_END_POINT}/get/${id}`,{
+                const res = await fetch(`${VITE_COMPANY_API_END_POINT}/get/${id}`,{
                     method:"GET",
                     credentials:"include"
                 })

@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "@/hooks/use-toast";
 import { userActions } from "../../../redux/UserProfile.js";
 import { persistor } from "@/main.jsx";
+import { VITE_USER_API_END_POINT } from "URI.js";
 
 const PopOver = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ const PopOver = () => {
   // const dispatch = useDispatch();
   const logoutHandler = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_USER_API_END_POINT}/logout`, {
+      const res = await fetch(`${VITE_USER_API_END_POINT}/logout`, {
         method: "GET",
         credentials: "include",
       });

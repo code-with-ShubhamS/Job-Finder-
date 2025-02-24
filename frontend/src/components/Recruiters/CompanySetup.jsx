@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import getSingleCompany from "../Custom Hooks/getSingleCompany";
 import { useSelector } from "react-redux";
+import { VITE_COMPANY_API_END_POINT } from "URI";
 
 
 export default function CompanySetup() {
@@ -109,7 +110,7 @@ useEffect(()=>{
         Object.entries(formData).forEach(([key, value]) => {
           form.append(key, value);
         });
-        const res = await fetch(`${import.meta.env.VITE_COMPANY_API_END_POINT}/update/${id}`,{
+        const res = await fetch(`${VITE_COMPANY_API_END_POINT}/update/${id}`,{
           method:"PUT",
           credentials:"include",
           body:form

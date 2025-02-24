@@ -7,6 +7,7 @@ import { toast } from "@/hooks/use-toast";
 import { formatDistanceToNow } from "date-fns";
 import { useDispatch, useSelector } from "react-redux";
 import {JobsActions} from "../../../redux/Jobs.js"
+import { VITE_JOB_API_END_POINT } from "URI.js";
 
 
 export default function singleJobs() {
@@ -19,7 +20,7 @@ export default function singleJobs() {
   useEffect(() => {
     async function jobDetail() {
       try {
-        const res = await fetch(`${import.meta.env.VITE_JOB_API_END_POINT}/get/${id}`, {
+        const res = await fetch(`${VITE_JOB_API_END_POINT}/get/${id}`, {
           method: "GET",
           credentials: "include",
         });

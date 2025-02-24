@@ -5,6 +5,7 @@ import EditProfile from "./EditProfile";
 import { useSelector } from "react-redux";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
 import { Card, CardContent } from "../ui/card";
+import { VITE_APPLICATION_API_END_POINT } from "URI";
 
 const UserProfile = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +19,7 @@ const UserProfile = () => {
       try {
         setLoading(true);
         const res = await fetch(
-          `${import.meta.env.VITE_APPLICATION_API_END_POINT}/get`,
+          `${VITE_APPLICATION_API_END_POINT}/get`,
           {
             method: "GET",
             credentials: "include",

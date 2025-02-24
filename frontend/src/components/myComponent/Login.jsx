@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {userActions} from "../../../redux/UserProfile.js"
+import { VITE_USER_API_END_POINT } from "URI.js";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ const Login = () => {
       async function handleLogin() {
         try {
           setLoading(true)
-          const res = await fetch(`${import.meta.env.VITE_USER_API_END_POINT}/login`,{
+          const res = await fetch(`${VITE_USER_API_END_POINT}/login`,{
             method:"POST",
             headers:{
               "Content-Type": "application/json",

@@ -16,6 +16,7 @@ import PostTime from "../Custom Hooks/getValidTime";
 
 import { MoreVertical, Edit, Users } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { VITE_JOB_API_END_POINT } from "URI";
 
 const CompanyJobsSection = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const CompanyJobsSection = () => {
     async function getAdminJobs() {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_JOB_API_END_POINT}/getadminjobs`,
+          `${VITE_JOB_API_END_POINT}/getadminjobs`,
           {
             method: "GET",
             credentials: "include",

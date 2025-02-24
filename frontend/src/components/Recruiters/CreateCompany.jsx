@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { CompanyAction } from '../../../redux/Company.js';
+import { VITE_COMPANY_API_END_POINT } from "URI.js";
 
 const CreateCompany = () => {
     const [companyName, setCompanyName] = useState("");
@@ -23,7 +24,7 @@ const CreateCompany = () => {
       e.preventDefault();
       setLoading(true)
       try {  
-        const res = await fetch(`${import.meta.env.VITE_COMPANY_API_END_POINT}/register`,{
+        const res = await fetch(`${VITE_COMPANY_API_END_POINT}/register`,{
           method:"POST",
           credentials:"include",
           headers:{
