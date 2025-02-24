@@ -26,11 +26,10 @@ const [input,setInput] = useState({
   name: user?.name || "",
   email: user?.email || "",
   phoneNumber: user?.phoneNumber || "",
-  bio : user?.bio || "",
-  skills : user?.skills || "",
-  file:user?.profile?.resume || ""
+  bio : user?.profile?.bio || "",
+  skills : user?.profile?.skills || "",
+  file:null
 })
-
 const onChangeHandler =(e)=>{
   setInput({...input,[e.target.name]:e.target.value})
 }
@@ -59,7 +58,7 @@ async function onSubmitData(){
 
   try {
     setLoading(true)
-    const res = await fetch("http://localhost:5000/api/v1/user/profile/update",{
+    const res = await fetch(`${import.meta.env.VITE_USER_API_END_POINT}/profile/update`,{
       method:"PUT",
       credentials:"include",
       body:formData
@@ -71,11 +70,17 @@ async function onSubmitData(){
       toast({
         title: data?.msg,
         status: "success",
+        duration: 2000,
       })
     
   } catch (error) {
     console.log(error);
-    // toast.error(error.data.msg)
+    toast({
+      variant:"destructive",
+      title:"Opps! Something went wrong",
+      description: error?.msg,
+      duration: 2000,
+    })
   } finally{
     setLoading(false)
   }
@@ -129,11 +134,11 @@ async function onSubmitData(){
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="skills" className="text-right">skills</Label>
-              <Input id="skills" name="skills" type="text" className="col-span-3"  defaultValue={input.skills}  onChange={onChangeHandler}/>
+              <Input id="skills" name="skills" type="text" className="col-span-3" placeholder="seprate by comma (,) " defaultValue={input.skills}  onChange={onChangeHandler}/>
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="resume" className="text-right">Resume</Label>
-              <Input id="resume" name="resume" type="file" accept="application/pdf" className="col-span-3" onChange={onFileChange}/>
+              <Input id="resume" name="resume" type="file" accept="application/pdf" className="col-span-3" onChange={onFileChange} />
             </div>
             </div>
             <DialogFooter>

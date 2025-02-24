@@ -13,11 +13,7 @@ const Header = () => {
         {" "}
         <div className="flex justify-between mx-auto items-center h-16">
           <div className="flex-shrink-0">
-            <img
-              className="h-8"
-              src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png"
-              alt="JobFinder"
-            />{" "}
+          <h2 className="text-2xl font-bold text-white"><span className="text-blue-500">Job</span>Finder</h2>
           </div>
           <div className="flex space-x-6">
           <NavLink

@@ -1,12 +1,14 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Building2, GraduationCap, Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate()
   return (
     <>
       <main className="flex-grow">
-        <section className="pt-24 bg-custom">
+        <section className="bg-custom">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             {" "}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16">
@@ -21,10 +23,10 @@ const HeroSection = () => {
                   starts here.
                 </p>{" "}
                 <div className="space-x-4">
-                  <button className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105">
+                  <button onClick={()=>{navigate("/jobs")}} className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105">
                     Find Jobs
                   </button>
-                  <button className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105">
+                  <button onClick={()=>{navigate("/admin/jobs/create")}} className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105">
                     Post Jobs
                   </button>
                  
@@ -55,7 +57,7 @@ const HeroSection = () => {
             <Card className="bg-[#0F111A]/50 border-gray-800">
               <CardHeader>
                 <Search className="w-12 h-12 mb-4 text-blue-500" />
-                <CardTitle className="text-xl mb-2 text-white">
+                <CardTitle className="text-[2rem] mb-2 text-white">
                   Find Perfect Jobs
                 </CardTitle>
               </CardHeader>
@@ -68,7 +70,7 @@ const HeroSection = () => {
             <Card className="bg-[#0F111A]/50 border-gray-800">
               <CardHeader>
                 <Building2 className="w-12 h-12 mb-4 text-blue-500" />
-                <CardTitle className="text-xl mb-2 text-white">
+                <CardTitle className="text-[2rem] mb-2 text-white">
                   Top Companies
                 </CardTitle>
               </CardHeader>
@@ -81,7 +83,7 @@ const HeroSection = () => {
             <Card className="bg-[#0F111A]/50 border-gray-800">
               <CardHeader>
                 <GraduationCap className="w-12 h-12 mb-4 text-blue-500" />
-                <CardTitle className="text-xl mb-2 text-white">
+                <CardTitle className="text-[2rem] mb-2 text-white">
                   Career Growth
                 </CardTitle>
               </CardHeader>

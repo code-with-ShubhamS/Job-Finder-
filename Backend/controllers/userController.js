@@ -94,14 +94,14 @@ export const login = async (req, res) => {
     jwt.sign(
       tokenData,
       process.env.JWT_SECRET,
-      { expiresIn: "1 days" },
+      { expiresIn: "30 days" },
       (err, token) => {
         if (err) throw err;
         return res
           .status(200)
           .cookie("token", token, {
-            maxAge: 5 * 24 * 60 * 60 * 1000,
-            httpsOnly: true,
+            maxAge: 30 * 24 * 60 * 60 * 1000,
+            httpOnly: true,
             sameSite: "strict",
           })
           .json({ msg: `Welcome Back ${user.name}`, user, success: true });

@@ -51,9 +51,11 @@ export const getAppliedJobs = async(req,res)=>{
       const application = await Application.find({applicant:userId}).sort({createdAt:-1}).populate({
         path:'job',
         options:{sort:{createdAt:-1}},
+        select: 'title',
         populate:{
             path:'company',
             options:{sort:{createdAt:-1}},
+            select:"name"
         }
       })
       if(!application){
@@ -68,6 +70,10 @@ export const getAppliedJobs = async(req,res)=>{
       })
     }catch(error){
         console.log(error);
+        return res.status(400).json({
+            msg:"Error while retreving Application",
+            success:false
+        })
     }
 };
 //admin dekehega kitne user ne apply kiya hai  
@@ -77,8 +83,10 @@ const jobId = req.params.id;
 const job = await Job.findById(jobId).populate({
     path:'applications',
     options:{sort:{createdAt:-1}},
+    select:"status",
     populate:{
-        path:'applicant'
+        path:'applicant',
+        select: 'email phoneNumber name resume createdAt status _id profile'
     }
 });
 
@@ -96,6 +104,10 @@ return res.status(200).json({
 
 }catch(error){
     console.log(error);
+    return res.status(500).json({
+        msg:"Server Error",
+        success:false
+    });
 }
 };
 
@@ -128,5 +140,9 @@ export const updateStatus = async(req,res)=>{
 
     }catch(error){
         console.log(error);
+        return res.status(400).json({
+            msg:"Error while updating status",
+            success:false
+           });
     }
 }

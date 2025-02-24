@@ -4,17 +4,18 @@ import {  faLocationDot, faMoneyBill } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 const JobCard = ({job}) => {
+  // console.log(job)
   return <>
   <div className="bg-[#181D2C80] rounded-xl p-6 hover:shadow-lg transition-shadow">
     <div className="flex items-start justify-between mb-4">
       <div className="flex items-center gap-4">
         <img
-          src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png"
+          src={job?.company?.logo || "default.png"}
           alt="Company Logo"
-          className="w-12 h-12 rounded-full"
+          className="w-12 h-12 rounded-full  object-cover "
           />
         <div>
-          <h3 className="font-semibold text-lg">{job?.company.name}</h3>
+          <h3 className="font-semibold text-lg">{job?.company?.name}</h3>
           <p className="text-gray-400 text-sm flex items-center gap-1">
             <FontAwesomeIcon icon={faLocationDot} /> {job?.location}
           </p>

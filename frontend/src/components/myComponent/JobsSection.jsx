@@ -29,39 +29,6 @@ const JobsSection =  () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
   
-  // const jobs = [
-  //   {
-  //     company: "Google",
-  //     location: "San Francisco, CA",
-  //     postedAgo: "2d ago",
-  //     title: "Senior Frontend Developer",
-  //     description:
-  //       "We're looking for an experienced Frontend Developer to join our dynamic team. Work on cutting-edge projects using React, TypeScript, and modern web technologies.",
-  //     jobType: "Full-time",
-  //     salary: "$120k - $160k/year",
-  //   },
-  //   {
-  //     company: "Microsoft",
-  //     location: "Seattle, WA",
-  //     postedAgo: "1d ago",
-  //     title: "Full Stack Engineer",
-  //     description:
-  //       "Join our cloud services team to build scalable solutions. Experience with Node.js, React, and AWS required. Remote work available.",
-  //     jobType: "Full-time",
-  //     salary: "$130k - $180k/year",
-  //   },
-  //   {
-  //     company: "Apple",
-  //     location: "Cupertino, CA",
-  //     postedAgo: "3d ago",
-  //     title: "iOS Developer",
-  //     description:
-  //       "Create next-generation iOS applications. Strong knowledge of Swift and iOS frameworks required. Join our innovative team.",
-  //     jobType: "Full-time",
-  //     salary: "$140k - $190k/year",
-  //   },
-  // ]
-
   return (
     <div className=" text-gray-100 min-h-[50vh] font-[Inter] flex-grow">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

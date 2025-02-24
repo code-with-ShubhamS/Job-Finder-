@@ -1,5 +1,5 @@
-import React from 'react'
-import { Building2, MoreVertical, Search, Plus } from "lucide-react";
+import React, { useEffect, useState } from 'react'
+import { Search, Plus } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -11,16 +11,48 @@ import {
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { useNavigate } from 'react-router-dom';
+import { toast } from '@/hooks/use-toast';
+import CompanyTable from './CompanyTable';
+import { useDispatch, useSelector } from 'react-redux';
+import {CompanyAction} from "../../../redux/Company.js"
+
 const Companies = () => {
     const navigate = useNavigate();
-    // const [searchTerm, setSearchTerm] = useState("");
-    // const { data: companies = [], isLoading } = useQuery({ 
-    //   queryKey: ["/api/companies"] 
-    // });
-  
-    // const filteredCompanies = companies.filter(company =>
-    //   company.name.toLowerCase().includes(searchTerm.toLowerCase())
-    // );
+    const [loading,setLoading] = useState(false);
+    const {allCompany:company}= useSelector(store=>store.company);
+    const dispatch = useDispatch();
+    useEffect(()=>{
+      async function fetchAllCompanies() {
+        try {
+          setLoading(false)
+          const res = await fetch(`${import.meta.env.VITE_COMPANY_API_END_POINT}/get`,{
+            method:"GET",
+            credentials:"include"
+          })
+          const data = await res.json();
+          if(data.success){
+            dispatch(CompanyAction.setCompanies(data.company))
+          }
+          toast({
+            title: data?.msg,
+            status: "success",
+            duration: 2000,
+          })
+
+        } catch (error) {
+          console.log(error)
+          toast({
+            varient:"destructive",
+            title:"Opps! Something went wrong",
+            description: error?.msg,
+            duration: 2000,
+          })
+        }finally{
+          setLoading(false)
+        }
+        }
+      fetchAllCompanies()
+    },[])
   return (
     <div className="flex-grow">
       {/* Main Content */}
@@ -51,19 +83,19 @@ const Companies = () => {
             <TableHeader>
               <TableRow className="hover:bg-muted/50">
                 <TableHead className="text-white">Logo</TableHead>
-                <TableHead className="text-white">Name</TableHead>
-                <TableHead className="text-white">Date</TableHead>
+                <TableHead className="text-white">Comapny Name</TableHead>
+                <TableHead className="text-white">Created Date</TableHead>
                 <TableHead className="w-[100px] text-white">Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {false ? (
+              {loading ? (
                 <TableRow>
                   <TableCell colSpan={4} className="text-center text-muted-foreground">
                     Loading...
                   </TableCell>
                 </TableRow>
-              ) : [{id:"123",name:"google",registrationDate:"12:23:3456"}].length === 0 ? (
+              ) : company.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={4} className="text-center text-muted-foreground text-white">
                     No companies found
@@ -71,23 +103,8 @@ const Companies = () => {
                 </TableRow>
               ) : (
                 
-                [{id:"123",name:"google",registrationDate:"12:23:3456"}].map((company) => (
-                  <TableRow key={company.id} className="hover:bg-muted/50">
-                    <TableCell>
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Building2 className="h-5 w-5 text-primary" />
-                      </div>
-                    </TableCell>
-                    <TableCell className="font-medium text-white">{company.name}</TableCell>
-                    <TableCell className="text-muted-foreground text-white">
-                      {new Date(company.registrationDate).toLocaleDateString()}
-                    </TableCell>
-                    <TableCell>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 p-0 bg-white">
-                        <MoreVertical className="h-4 w-4 " />
-                      </Button>
-                    </TableCell>
-                  </TableRow>
+                company.map((company) => (
+                  <CompanyTable company={company}  key={company?._id}/>
                 ))
               )}
             </TableBody>

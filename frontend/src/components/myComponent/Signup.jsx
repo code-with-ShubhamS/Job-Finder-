@@ -11,6 +11,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function SignupPage() {
   const navigate = useNavigate()
+  const user = useSelector(store=>store.userProfile)
+  useEffect(()=>{
+    if(user){
+      toast({
+        title: "User has already account",
+        duration: 1000,
+        status: "success",
+      })
+      navigate("/");
+    }
+  },[])
   // const dispatch = useDispatch();
   const [loading,setLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -55,14 +66,15 @@ export default function SignupPage() {
     
       try {
         setLoading(true)
-        const res = await fetch("http://localhost:5000/api/v1/user/register",{
+        const res = await fetch(`${import.meta.env.VITE_USER_API_END_POINT}/register`,{
           method:"POST",
           body:form,
           credentials:"include"
         });
         const data = await res.json();
         toast({
-          title: data?.msg,
+          title: data.msg,
+          duration: 1000,
           status: "success",
         })
         if(data.success){
@@ -72,7 +84,12 @@ export default function SignupPage() {
         }
       }  catch (error) {
         console.log(error)
-        toast.error(error?.data?.msg)
+        toast({
+          variant:"destructive",
+          title:"Opps! Something went wrong",
+          description: error?.msg,
+          duration: 2000,
+        })
       } finally{
         setLoading(false)
       }

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useParams } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
-import { ToastAction } from "@radix-ui/react-toast";
 import { formatDistanceToNow } from "date-fns";
 import { useDispatch, useSelector } from "react-redux";
 import {JobsActions} from "../../../redux/Jobs.js"
@@ -20,7 +19,7 @@ export default function singleJobs() {
   useEffect(() => {
     async function jobDetail() {
       try {
-        const res = await fetch(`http://localhost:5000/api/v1/job/get/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_JOB_API_END_POINT}/get/${id}`, {
           method: "GET",
           credentials: "include",
         });
@@ -33,16 +32,17 @@ export default function singleJobs() {
           toast({
             title: data?.msg,
             status: "success",
+            duration: 2000,
           });
         }
       } catch (error) {
         console.log(error);
         toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: error?.data?.msg,
-          action: <ToastAction altText="Try again">Try again</ToastAction>,
-        });
+          variant:"destructive",
+          title:"Opps! Something went wrong",
+          description: error?.msg,
+          duration: 2000,
+        })
       }
     }
     jobDetail();
@@ -51,7 +51,7 @@ export default function singleJobs() {
   const handleApplyJobs = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/v1/application/apply/${id}`,
+        `${import.meta.env.VITE_APPLICATION_API_END_POINT}/apply/${id}`,
         {
           method:"GET",
           credentials:"include"

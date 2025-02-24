@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -9,10 +9,23 @@ import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {userActions} from "../../../redux/UserProfile.js"
+
 const Login = () => {
+  const navigate = useNavigate();
+  const user = useSelector(store=>store.userProfile)
+  useEffect(()=>{
+    if(user){
+      navigate("/");
+      toast({
+        title: "User is already login",
+        duration: 1000,
+        status: "success",
+      })
+    }
+  },[])
   const dispatch = useDispatch();
   const [loading,setLoading] = useState(false);
-  const navigate = useNavigate();
+ 
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -30,7 +43,7 @@ const Login = () => {
       async function handleLogin() {
         try {
           setLoading(true)
-          const res = await fetch("http://localhost:5000/api/v1/user/login",{
+          const res = await fetch(`${import.meta.env.VITE_USER_API_END_POINT}/login`,{
             method:"POST",
             headers:{
               "Content-Type": "application/json",
@@ -53,7 +66,12 @@ const Login = () => {
           }
         } catch (error) {
           console.log(error)
-          toast.error(error.response?.data?.msg)
+          toast({
+            variant:"destructive",
+            title:"Opps! Something went wrong",
+            description: error?.msg,
+            duration: 2000,
+          })
         } finally{
           setLoading(false)
         }

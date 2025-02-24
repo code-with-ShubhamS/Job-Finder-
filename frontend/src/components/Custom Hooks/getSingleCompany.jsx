@@ -2,25 +2,23 @@ import { toast } from '@/hooks/use-toast';
 import { ToastAction } from '@radix-ui/react-toast';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { JobsActions } from '../../../redux/Jobs.js';
-const useGetAllJobs = () => {
+import { CompanyAction } from '../../../redux/Company.js';
+const getSingleCompany = (id) => {
     const dispatch = useDispatch()
     const [error,setError] = useState(false);
     const [loading,setLoading] = useState(false);
-    const [searchJob,setSearchJob] = useState("")
     useEffect(()=>{
-        async function getJobs(){
+        async function getSingleCompanyInfo(){
             try {
                 setLoading(true)
-                const res = await fetch(`${import.meta.env.VITE_JOB_API_END_POINT}/get`,{
+                const res = await fetch(`${import.meta.env.VITE_COMPANY_API_END_POINT}/get/${id}`,{
                     method:"GET",
                     credentials:"include"
                 })
                 const data = await res.json();
                 if(data.success){
-                    dispatch(JobsActions.setAllJobs(data.jobs))
+                    dispatch(CompanyAction.setSingleCompany(data?.company))
                 }
-                
                 if(data?.msg){
                     toast({
                         title: data?.msg,
@@ -32,17 +30,16 @@ const useGetAllJobs = () => {
                 toast({
                     variant: "destructive",
                     title: "Uh oh! Something went wrong.",
-                    // description: data?.msg,
-                    action: <ToastAction altText="Try again">Try again</ToastAction>,
+                    description: error?.msg,
                 })
                 console.log(error)
             }finally{
                 setLoading(false)
             }
         }
-        getJobs();
-    },[searchJob])
+        getSingleCompanyInfo();
+    },[id])
   return {loading,error};
 }
 
-export default useGetAllJobs
+export default getSingleCompany

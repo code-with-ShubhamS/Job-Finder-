@@ -1,78 +1,61 @@
-import { Link } from 'lucide-react'
 import React from 'react'
-
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FiGithub } from "react-icons/fi";
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid md:grid-cols-4 gap-8 text-white">
-            {/* Logo Section */}
-            <div>
-              <h2 className="text-2xl font-bold mb-4">
-                <span className="text-blue-500">Job</span>Finder
-              </h2>
-              <p className="text-gray-400">Connecting talent with opportunity.</p>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/about" className="hover:text-blue-500">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/jobs" className="hover:text-blue-500">
-                    Find Jobs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/post" className="hover:text-blue-500">
-                    Post a Job
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-blue-500">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>info@jobfinder.com</li>
-                <li>+1 (555) 123-4567</li>
-                <li>123 Business Street, NY 10001</li>
-              </ul>
-            </div>
-
-            {/* Follow Us */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <Link href="#" className="text-gray-400 hover:text-blue-500">
-                  Twitter
-                </Link>
-                <Link href="#" className="text-gray-400 hover:text-blue-500">
-                  LinkedIn
-                </Link>
-                <Link href="#" className="text-gray-400 hover:text-blue-500">
-                  Facebook
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>© 2024 JobFinder. All rights reserved.</p>
-          </div>
+    <footer className="border-t border-gray-800 text-white py-10 px-4 md:px-6">
+    <div className="max-w-6xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        {/* Brand Section */}
+        <div className="text-center md:text-left">
+          <h2 className="text-2xl font-bold  mb-2"><span className="text-blue-500">Job</span>Finder</h2>
+          <p className="text-sm opacity-90">
+            © 2025 JobFinder. Created by Shubham
+          </p>
         </div>
-      </footer>
+
+        {/* Social Links */}
+        <div className="flex gap-6 justify-center md:justify-start">
+          <a
+            href="https://github.com/code-with-ShubhamS"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-2xl transition-all duration-300 hover:text-[#3b5998] hover:-translate-y-1"
+            aria-label="Facebook"
+          >
+            <FiGithub/>
+          </a>
+          <a
+            href="https://twitter.com/Shubham_code12"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-2xl transition-all duration-300 hover:text-[#1da1f2] hover:-translate-y-1"
+            aria-label="Twitter"
+          >
+            <FaTwitter />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/shubham-semwal-4080962b7/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-2xl transition-all duration-300 hover:text-[#0077b5] hover:-translate-y-1"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://www.instagram.com/s_semwal_ji"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-2xl transition-all duration-300 hover:text-[#e1306c] hover:-translate-y-1"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
   )
 }
 
