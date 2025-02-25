@@ -1,0 +1,10 @@
+@media (max-width: 530px) {
+    .hide-text {
+      display: none;
+    }
+    .setSizeBtn{
+        width: 4rem;
+    height: 2rem;
+    }
+  }
+  

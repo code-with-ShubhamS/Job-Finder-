@@ -11,7 +11,7 @@ const HeroSection = () => {
         <section className="bg-custom">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             {" "}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-8">
               <div className="text-white">
                 {" "}
                 <h1 className="text-5xl font-bold leading-tight mb-6">
@@ -42,7 +42,7 @@ const HeroSection = () => {
             </div>
           </div>
         </section>
-      </main>
+     
 
       <div className="min-h-[100%] text-white">
         {/* Hero Section */}
@@ -95,6 +95,7 @@ const HeroSection = () => {
           </div>
         </main>
       </div>
+      </main>
     </>
   );
 };
