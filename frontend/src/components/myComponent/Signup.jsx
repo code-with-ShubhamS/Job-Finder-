@@ -8,7 +8,7 @@ import { toast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { VITE_USER_API_END_POINT } from "URI";
+import { VITE_USER_API_END_POINT } from "../../../URI.js";
 
 export default function SignupPage() {
   const navigate = useNavigate()

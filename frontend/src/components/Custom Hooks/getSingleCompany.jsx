@@ -3,7 +3,7 @@ import { ToastAction } from '@radix-ui/react-toast';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { CompanyAction } from '../../../redux/Company.js';
-import { VITE_COMPANY_API_END_POINT } from 'URI.js';
+import { VITE_COMPANY_API_END_POINT } from '../../../URI.js';
 const getSingleCompany = (id) => {
     const dispatch = useDispatch()
     const [error,setError] = useState(false);

@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "@/hooks/use-toast";
 import { userActions } from "../../../redux/UserProfile.js";
 import { persistor } from "@/main.jsx";
-import { VITE_USER_API_END_POINT } from "URI.js";
+import { VITE_USER_API_END_POINT } from "../../../URI.js";
 
 const PopOver = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,7 @@ const PopOver = () => {
         credentials: "include",
       });
       const data = await res.json();
-      console.log(data);
+    
       if (data?.msg) {
         // dispatch(userActions.setProfile(null));
         toast({

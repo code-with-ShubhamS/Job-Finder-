@@ -15,7 +15,7 @@ import { toast } from '@/hooks/use-toast';
 import CompanyTable from './CompanyTable';
 import { useDispatch, useSelector } from 'react-redux';
 import {CompanyAction} from "../../../redux/Company.js"
-import { VITE_COMPANY_API_END_POINT } from 'URI';
+import { VITE_COMPANY_API_END_POINT } from '../../../URI.js';
 
 const Companies = () => {
     const navigate = useNavigate();

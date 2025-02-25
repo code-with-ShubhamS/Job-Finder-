@@ -16,13 +16,13 @@ import PostTime from "../Custom Hooks/getValidTime";
 
 import { MoreVertical, Edit, Users } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { VITE_JOB_API_END_POINT } from "URI";
+import { VITE_JOB_API_END_POINT } from "../../../URI.js";
 
 const CompanyJobsSection = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { adminJobs } = useSelector((store) => store.adminJobs);
-  console.log(adminJobs);
+ 
   useEffect(() => {
     async function getAdminJobs() {
       try {

@@ -57,14 +57,14 @@ const Header = () => {
             >
               Jobs
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to={"/browse"}
               className={({ isActive }) =>
               `text-white font-bold ${ isActive && "border-b-2 border-gray-500 pb-1"}`
               }
             >
               Browse
-            </NavLink>
+            </NavLink> */}
             </>
             }
            

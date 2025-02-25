@@ -7,7 +7,7 @@ import { toast } from "@/hooks/use-toast";
 import { formatDistanceToNow } from "date-fns";
 import { useDispatch, useSelector } from "react-redux";
 import {JobsActions} from "../../../redux/Jobs.js"
-import { VITE_JOB_API_END_POINT } from "URI.js";
+import { VITE_JOB_API_END_POINT } from "../../../URI.js";
 
 
 export default function singleJobs() {

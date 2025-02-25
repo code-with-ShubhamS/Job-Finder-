@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { CompanyAction } from '../../../redux/Company.js';
-import { VITE_COMPANY_API_END_POINT } from "URI.js";
+import { VITE_COMPANY_API_END_POINT } from "../../../URI.js";
 
 const CreateCompany = () => {
     const [companyName, setCompanyName] = useState("");
@@ -38,7 +38,7 @@ const CreateCompany = () => {
           status: "success",
           duration: 2000,
         })
-        console.log(data)
+        
         if(data.company && data.success){
           dispatch(CompanyAction.setSingleCompany(data?.company))
           navigate(`/admin/companies/${data?.company?._id}`)

@@ -5,15 +5,14 @@ import EditProfile from "./EditProfile";
 import { useSelector } from "react-redux";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
 import { Card, CardContent } from "../ui/card";
-import { VITE_APPLICATION_API_END_POINT } from "URI";
+import { VITE_APPLICATION_API_END_POINT } from "../../../URI.js";
 
 const UserProfile = () => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const user = useSelector((store) => store.userProfile);
   const [applyiedJobs, setAppliedJobs] = useState([]);
-  // console.log(applyiedJobs)
-  // console.log(user)
+
   useEffect(() => {
     async function getAppliedJobs() {
       try {
@@ -26,7 +25,7 @@ const UserProfile = () => {
           }
         );
         const data = await res.json();
-        // console.log(data)
+
         if (data.success) {
           setAppliedJobs(data?.application);
         }

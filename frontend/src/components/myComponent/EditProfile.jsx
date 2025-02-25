@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from "../../../redux/UserProfile";
 import { Loader2 } from 'lucide-react'
 import { toast } from '@/hooks/use-toast'
-import { VITE_USER_API_END_POINT } from 'URI'
+import { VITE_USER_API_END_POINT } from '../../../URI.js'
 
 
 const EditProfile = ({open,setOpen}) => {

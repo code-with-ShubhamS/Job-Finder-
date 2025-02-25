@@ -24,7 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "@/hooks/use-toast";
 import {AdminJobsActions} from "../../../redux/AdminJobs.js"
 import { useNavigate } from "react-router-dom";
-import { VITE_JOB_API_END_POINT } from "URI";
+import { VITE_JOB_API_END_POINT } from "../../../URI.js";
 
 
 const jobTypes = ["Full-time", "Part-time", "Contract", "Freelance"];

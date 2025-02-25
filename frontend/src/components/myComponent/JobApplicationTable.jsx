@@ -1,7 +1,6 @@
 import React from "react";
 import PostTime from "../Custom Hooks/getValidTime.jsx"
 export const JobApplicationTable = ({ applyiedJobs }) => {
-  console.log(applyiedJobs);
   const getStatusColor = (status) => {
     if (status === "rejected") return "bg-red-400";
     if (status === "accepted") return "bg-green-400";

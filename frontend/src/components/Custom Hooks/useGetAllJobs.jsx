@@ -3,7 +3,7 @@ import { ToastAction } from '@radix-ui/react-toast';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { JobsActions } from '../../../redux/Jobs.js';
-import { VITE_JOB_API_END_POINT } from 'URI.js';
+import { VITE_JOB_API_END_POINT } from '../../../URI.js';
 const useGetAllJobs = () => {
     const dispatch = useDispatch()
     const [error,setError] = useState(false);
@@ -34,7 +34,6 @@ const useGetAllJobs = () => {
                     variant: "destructive",
                     title: "Uh oh! Something went wrong.",
                     // description: data?.msg,
-                    action: <ToastAction altText="Try again">Try again</ToastAction>,
                 })
                 console.log(error)
             }finally{

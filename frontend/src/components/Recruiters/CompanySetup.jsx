@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import getSingleCompany from "../Custom Hooks/getSingleCompany";
 import { useSelector } from "react-redux";
-import { VITE_COMPANY_API_END_POINT } from "URI";
+import { VITE_COMPANY_API_END_POINT } from "../../../URI.js";
 
 
 export default function CompanySetup() {
@@ -25,7 +25,7 @@ export default function CompanySetup() {
   });
   
   const {setSingleCompany:singleCompany} = useSelector(store=>store.company)
-  console.log(singleCompany)
+  
 useEffect(()=>{
   setFormData({
     companyName: singleCompany?.name || "",

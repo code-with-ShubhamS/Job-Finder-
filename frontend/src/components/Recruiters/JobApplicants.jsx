@@ -6,16 +6,14 @@ import { useParams } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
-import { VITE_APPLICATION_API_END_POINT } from "URI";
+import { VITE_APPLICATION_API_END_POINT } from "../../../URI.js";
 
 const JobApplicants = () => {
   const [loading, setLoading] = useState(false);
   const [applicantLoading, setApplicantLoading] = useState(false);
   const { id: jobId } = useParams();
   const [applicants, setApplicants] = useState([]);
-  // const [error, setError] = useState(null);
 
-  // console.log(applicants)
   useEffect(() => {
     async function getApplicants() {
       try {
@@ -28,7 +26,7 @@ const JobApplicants = () => {
           }
         );
         const data = await res.json();
-        console.log(data)
+   
         if (data?.msg) {
           toast({
             title: data?.msg,

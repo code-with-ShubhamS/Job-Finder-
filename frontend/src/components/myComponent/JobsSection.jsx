@@ -6,15 +6,12 @@ import { faSearch, faFilter, faArrowUp } from "@fortawesome/free-solid-svg-icons
 import JobCard from "./JobCard"
 import useGetAllJobs from "../Custom Hooks/useGetAllJobs.jsx"
 import { useSelector } from "react-redux"
-import { useDispatch } from 'react-redux';
-import { JobsActions } from '../../../redux/Jobs.js';
-import { toast } from "@/hooks/use-toast"
+
 
 const JobsSection =  () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   useGetAllJobs() // Geting all jobs
   const {jobs} = useSelector(store=>store.Jobs)
-  // console.log(jobs,"Jobs")
 
   useEffect(() => {
     const handleScroll = () => {
