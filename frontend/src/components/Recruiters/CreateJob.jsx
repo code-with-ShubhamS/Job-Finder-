@@ -114,12 +114,12 @@ export default function CreateJob() {
       // if(data.success){
       //   dispatch(AdminJobsActions.setAdminJobs(data?.job))
       // }
-      if(data?.msg){
-        toast({
-          title: data?.msg,
-          duration: 2000,
-        });
-      }
+      // if(data?.msg){
+      //   toast({
+      //     title: data?.msg,
+      //     duration: 2000,
+      //   });
+      // }
       form.reset();
       setErrors({});
       if(data?.success){

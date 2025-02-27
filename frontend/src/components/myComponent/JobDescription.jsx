@@ -7,7 +7,7 @@ import { toast } from "@/hooks/use-toast";
 import { formatDistanceToNow } from "date-fns";
 import { useDispatch, useSelector } from "react-redux";
 import {JobsActions} from "../../../redux/Jobs.js"
-import { VITE_JOB_API_END_POINT } from "../../../URI.js";
+import { VITE_APPLICATION_API_END_POINT, VITE_JOB_API_END_POINT } from "../../../URI.js";
 
 
 export default function singleJobs() {
@@ -30,11 +30,11 @@ export default function singleJobs() {
           dispatch(JobsActions.setSingleJob(data.job))
         }
         if (data.msg) {
-          toast({
-            title: data?.msg,
-            status: "success",
-            duration: 2000,
-          });
+          // toast({
+          //   title: data?.msg,
+          //   status: "success",
+          //   duration: 2000,
+          // });
         }
       } catch (error) {
         console.log(error);
@@ -52,24 +52,24 @@ export default function singleJobs() {
   const handleApplyJobs = async () => {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_APPLICATION_API_END_POINT}/apply/${id}`,
+        `${VITE_APPLICATION_API_END_POINT}/apply/${id}`,
         {
           method:"GET",
           credentials:"include"
         }
       );
       const data = await res.json();
-      toast({
-        title: data?.msg,
-        status: "success",
-      });
+      // toast({
+      //   title: data?.msg,
+      //   status: "success",
+      // });
     
     } catch (error) {
       console.log(error);
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        // description: data?.msg,
+        description: data?.msg,
       });
     }
    

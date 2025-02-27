@@ -23,10 +23,10 @@ const useGetAllJobs = () => {
                 }
                 
                 if(data?.msg){
-                    toast({
-                        title: data?.msg,
-                        status: "success",
-                    })
+                    // toast({
+                    //     title: data?.msg,
+                    //     status: "success",
+                    // })
                 }
             } catch (error) {
                 setError(true);

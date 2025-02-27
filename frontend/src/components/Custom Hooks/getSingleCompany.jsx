@@ -21,10 +21,10 @@ const getSingleCompany = (id) => {
                     dispatch(CompanyAction.setSingleCompany(data?.company))
                 }
                 if(data?.msg){
-                    toast({
-                        title: data?.msg,
-                        status: "success",
-                    })
+                    // toast({
+                    //     title: data?.msg,
+                    //     status: "success",
+                    // })
                 }
             } catch (error) {
                 setError(true);

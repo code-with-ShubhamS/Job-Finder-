@@ -37,13 +37,13 @@ const CompanyJobsSection = () => {
         if (data?.success) {
           dispatch(AdminJobsActions.setAdminJobs(data?.jobs));
         }
-        if (data?.msg) {
-          toast({
-            title: data?.msg,
-            status: "success",
-            duration: 2000,
-          });
-        }
+        // if (data?.msg) {
+        //   toast({
+        //     title: data?.msg,
+        //     status: "success",
+        //     duration: 2000,
+        //   });
+        // }
       } catch (error) {
         console.log(error);
         toast({

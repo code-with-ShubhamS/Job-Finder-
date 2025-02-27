@@ -27,13 +27,13 @@ const JobApplicants = () => {
         );
         const data = await res.json();
    
-        if (data?.msg) {
-          toast({
-            title: data?.msg,
-            status: "success",
-            duration: 2000,
-          });
-        }
+        // if (data?.msg) {
+        //   toast({
+        //     title: data?.msg,
+        //     status: "success",
+        //     duration: 2000,
+        //   });
+        // }
         if (data.success) {
           setApplicants(data?.job?.applications);
         }

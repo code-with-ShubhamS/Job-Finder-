@@ -34,11 +34,11 @@ const Companies = () => {
           if(data.success){
             dispatch(CompanyAction.setCompanies(data.company))
           }
-          toast({
-            title: data?.msg,
-            status: "success",
-            duration: 2000,
-          })
+          // toast({
+          //   title: data?.msg,
+          //   status: "success",
+          //   duration: 2000,
+          // })
 
         } catch (error) {
           console.log(error)
