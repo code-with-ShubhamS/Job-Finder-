@@ -22,11 +22,11 @@ const HeroSection = () => {
                   that match your skills and aspirations. Your next career move
                   starts here.
                 </p>{" "}
-                <div className="space-x-4">
+                <div className="flex gap-[1rem]">
                   <button onClick={()=>{navigate("/jobs")}} className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105">
                     Find Jobs
                   </button>
-                  <button onClick={()=>{navigate("/admin/jobs/create")}} className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105">
+                  <button onClick={()=>{navigate("/admin/jobs/create")}} className=" bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105">
                     Post Jobs
                   </button>
                  
