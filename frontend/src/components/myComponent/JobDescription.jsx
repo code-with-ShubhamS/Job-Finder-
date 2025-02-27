@@ -30,11 +30,11 @@ export default function singleJobs() {
           dispatch(JobsActions.setSingleJob(data.job))
         }
         if (data.msg) {
-          // toast({
-          //   title: data?.msg,
-          //   status: "success",
-          //   duration: 2000,
-          // });
+          toast({
+            title: data?.msg,
+            status: "success",
+            duration: 2000,
+          });
         }
       } catch (error) {
         console.log(error);

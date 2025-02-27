@@ -34,7 +34,7 @@ const JobApplicants = () => {
         //     duration: 2000,
         //   });
         // }
-        if (data.success) {
+        if (data?.success) {
           setApplicants(data?.job?.applications);
         }
       } catch (error) {
@@ -59,7 +59,7 @@ const JobApplicants = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `${import.meta.env.VITE_APPLICATION_API_END_POINT}/status/${id}/update`,
+        `${VITE_APPLICATION_API_END_POINT}/status/${id}/update`,
         {
           method: "PATCH",
           credentials: "include",
