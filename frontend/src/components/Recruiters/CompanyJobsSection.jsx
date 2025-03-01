@@ -116,13 +116,13 @@ const CompanyJobsSection = () => {
                     </PopoverTrigger>
                     <PopoverContent className="w-40 p-2 bg-white shadow-md rounded-md">
                       <div className="flex flex-col space-y-2">
+                        {/* <button className="flex items-center space-x-2 p-2 rounded-md bg-white hover:bg-gray-100 w-full text-left">
+                          <Edit className="w-4 h-4 text-black" />
+                          <span className="text-black">Edit</span>
+                        </button> */}
                         <button className="flex items-center space-x-2 p-2 rounded-md bg-white hover:bg-gray-100 w-full text-left">
-                          <Edit className="w-4 h-4" />
-                          <span>Edit</span>
-                        </button>
-                        <button className="flex items-center space-x-2 p-2 rounded-md bg-white hover:bg-gray-100 w-full text-left">
-                          <Users className="w-4 h-4" />
-                          <Link to={`/admin/job/${job?._id}/applicants`}> <span>Applicants</span></Link>
+                          <Users className="w-4 h-4 text-black" />
+                          <Link to={`/admin/job/${job?._id}/applicants`}> <span className="text-black">Applicants</span></Link>
                 
                         </button>
                       </div>

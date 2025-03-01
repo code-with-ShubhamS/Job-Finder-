@@ -97,7 +97,7 @@ const Header = () => {
                 <Popover open={open} onOpenChange={setOpen}>
                   <PopoverTrigger asChild>
                     <Button variant="ghost" size="icon" className="bg-white h-[2rem] w-[1.6rem]">
-                      <MoreVertical className="w-6 h-6" />
+                      <MoreVertical className="w-6 h-6 text-black" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-40 p-2 bg-white rounded-lg shadow-lg">
@@ -105,7 +105,7 @@ const Header = () => {
                     to={"/auth/signup"}
                     className={({ isActive }) => (isActive ? "hidden" : "")}
                   >
-                     <Button   variant="signin" className="w-full">
+                     <Button   variant="signin" className="w-full text-black bg-[#e5e7eb]">
                       Signup
                     </Button>
                   </NavLink>
@@ -113,7 +113,7 @@ const Header = () => {
                     to={"/auth/login"}
                     className={({ isActive }) => (isActive ? "hidden" : "")}
                   >
-                     <Button   variant="login" className="w-full text-black">
+                     <Button   variant="login" className="w-full text-black bg-[#e5e7eb]">
                      Login
                     </Button>
                   </NavLink>
@@ -129,7 +129,7 @@ const Header = () => {
                   >
                     <Button
                       variant="signin"
-                      className="max-[530px]:w-16 max-[530px]:h-8"
+                      className="max-[530px]:w-16 max-[530px]:h-8 text-black"
                     >
                       Signup
                     </Button>
@@ -140,7 +140,7 @@ const Header = () => {
                   >
                     <Button
                       variant="login"
-                      className="max-[530px]:w-16 max-[530px]:h-8"
+                      className="max-[530px]:w-16 max-[530px]:h-8 text-white"
                     >
                       login
                     </Button>

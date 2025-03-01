@@ -57,8 +57,7 @@ const PopOver = () => {
         {/* Circular Profile Photo (Trigger) */}
         <PopoverTrigger
           className="rounded-full border-2 border-gray-600 hover:border-primary transition-all"
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
+         asChild
         >
           <img
             src={user?.profile?.profilePhoto || "default.png"}
@@ -71,8 +70,7 @@ const PopOver = () => {
         <PopoverContent
           className="w-52 bg-gray-900 border-gray-700 text-white shadow-lg rounded-lg p-3"
           align="end"
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
+         
         >
           <div className="flex flex-col items-center space-y-2">
             {/* Enlarged Profile Image */}

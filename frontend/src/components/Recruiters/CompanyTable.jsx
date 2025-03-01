@@ -35,7 +35,7 @@ const CompanyTable = ({ company }) => {
                 className="h-8 w-8 p-0 hover:bg-white-70 bg-white"
               >
                 <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
+                <MoreHorizontal className="h-4 w-4 text-black" />
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-48 p-2" align="end">
@@ -45,8 +45,8 @@ const CompanyTable = ({ company }) => {
                   navigate(`/admin/companies/${company._id}`)
                 }}
               >
-                <Pencil className="h-4 w-4" />
-                <span>Edit</span>
+                <Pencil className="h-4 w-4 text-black" />
+                <span className="text-black">Edit</span>
               </div>
             </PopoverContent>
           </Popover>

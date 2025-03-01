@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 export function LoadingSpinner() {
   return (
     <div className={cn(
-      "fixed inset-0 z-50 bg-black/80 flex items-center justify-center"
+      "fixed inset-0 z-50  flex items-center justify-center"
     )}>
       <div className="flex flex-col items-center gap-4">
         <div className="relative">
