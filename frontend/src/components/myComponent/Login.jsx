@@ -58,7 +58,8 @@ const Login = () => {
             dispatch(userActions.setProfile(data.user))
           }
           toast({
-            title: data.msg,
+            title: data?.msg || "Successfull",
+            description: data.success===true && "Login Successfull",
             duration: 1000,
             status: "success",
           })
